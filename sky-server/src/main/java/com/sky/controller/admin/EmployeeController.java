@@ -103,4 +103,17 @@ public class EmployeeController {
         return Result.success(pageResult);
 
     }
+
+    /**
+     * 启用禁用员工账户
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    //如果路径参数名称不一样，则设置@PathVariable的value
+    @ApiOperation("启用禁用员工账户")
+    public Result startOrStop(@PathVariable Integer status,Long id){
+        log.info("启用禁用员工账户：{}，{}",status,id);
+        employeeService.startOrStop(status, id);
+        return Result.success();
+    }
 }
