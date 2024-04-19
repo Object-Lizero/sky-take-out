@@ -32,6 +32,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
 
     //注册拦截器
+    @Autowired
     private JwtTokenUserInterceptor jwtTokenUserInterceptor;
     /**
      * 注册自定义拦截器
