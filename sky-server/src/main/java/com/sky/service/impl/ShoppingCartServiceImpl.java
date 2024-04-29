@@ -93,4 +93,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
         return list;
     }
+
+    @Override
+    public void cleanShoppingCart() {
+        //获得当前登陆用户的id
+        Long currentId = BaseContext.getCurrentId();
+
+        shoppingCartMapper.deleteByUserid(currentId);
+    }
 }
